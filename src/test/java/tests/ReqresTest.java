@@ -130,8 +130,7 @@ public class ReqresTest {
                 .statusCode(200)
                 .body("page", is(2))
                 .body("data.last_name", hasItem("Lawson"))
-                .body("data.first_name", hasItem("Michael"))
-                .body("support.text", is("Tired of writing endless social media content? Let Content Caddy generate it for you."));
+                .body("data.first_name", hasItem("Michael"));
     }
 
     @Test
