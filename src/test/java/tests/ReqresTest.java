@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
@@ -69,6 +70,7 @@ public class ReqresTest {
                 .statusCode(400)
                 .body("error", is("Missing password"));
     }
+
     @Test
     @DisplayName("Проверка авторизации без емейла")
     void registrationUserWithOutEmailTest() {
@@ -90,6 +92,7 @@ public class ReqresTest {
                 .statusCode(400)
                 .body("error", is("Missing email or username"));
     }
+
     @Test
     @DisplayName("Проверка авторизации без емейла и пароля")
     void registrationUserWithOutEmailAndPasswordTest() {
@@ -109,6 +112,7 @@ public class ReqresTest {
                 .statusCode(400)
                 .body("error", is("Missing email or username"));
     }
+
     @Test
     @DisplayName("Получение списка юзеров и проверка одного из них")
     void getUserList() {
@@ -129,6 +133,7 @@ public class ReqresTest {
                 .body("data.first_name", hasItem("Michael"))
                 .body("support.text", is("Tired of writing endless social media content? Let Content Caddy generate it for you."));
     }
+
     @Test
     @DisplayName("Получение списка юзеров и проверка текста у саппорта")
     void getUserListAndCheckText() {
@@ -147,20 +152,21 @@ public class ReqresTest {
                 .body("page", is(2))
                 .body("support.text", is("Tired of writing endless social media content? Let Content Caddy generate it for you."));
     }
-        @Test
-        @DisplayName("Удаление юзера")
-        void deleteUser() {
-            given()
-                    .header("x-api-key", accessToken)
-                    .contentType(JSON)
-                    .log().uri()
 
-                    .when()
-                    .delete(baseUrl + "/api/users/2")
+    @Test
+    @DisplayName("Удаление юзера")
+    void deleteUser() {
+        given()
+                .header("x-api-key", accessToken)
+                .contentType(JSON)
+                .log().uri()
 
-                    .then()
-                    .log().status()
-                    .log().body()
-                    .statusCode(204);
-        }
+                .when()
+                .delete(baseUrl + "/api/users/2")
+
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(204);
     }
+}
