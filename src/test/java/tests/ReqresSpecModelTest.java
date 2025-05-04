@@ -3,14 +3,14 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import models.*;
+import models.ErrorBodyModel;
+import models.LoginBodyModel;
+import models.LoginResponseModel;
+import models.UsersBodyModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.Map;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -21,15 +21,12 @@ import static specs.Specs.*;
 
 @Tag("AllApi")
 public class ReqresSpecModelTest {
-@BeforeAll
-static void browserConfiguration() {
+    @BeforeAll
+    static void browserConfiguration() {
+        Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 
-    Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-
-
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-}
     @Test
     @DisplayName("Проверка авторизации и получения токена")
     void successAuthTest() {
@@ -51,7 +48,6 @@ static void browserConfiguration() {
         step("Check response", () ->
                 assertEquals("QpwL5tke4Pnpja7X4", response.getToken()));
     }
-
 
     @Test
     @DisplayName("Авторизация с невалидным емейлом")
@@ -135,7 +131,6 @@ static void browserConfiguration() {
                 assertEquals("Missing email or username", response.getError()));
     }
 
-
     @Test
     @DisplayName("Получение списка юзеров и проверка одного из них")
     void getUserList() {
@@ -197,7 +192,5 @@ static void browserConfiguration() {
                         .then()
                         .spec(deleteUsersPageResponseSpec)
         );
-
-
     }
 }
