@@ -1,29 +1,52 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import models.*;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.Map;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static java.util.Locale.filter;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.LoginSpec.*;
+import static specs.Specs.*;
 
+@Tag("AllApi")
+public class ReqresSpecModelTest {
+@BeforeAll
+static void browserConfiguration() {
 
-public class ReqresLombokTest {
-    String baseUrl = "https://reqres.in";
-    String accessToken = "reqres-free-v1";
+    Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+    Configuration.browser = System.getProperty("browser", "chrome");
+    Configuration.browserVersion = System.getProperty("browserVersion", "127.0");
+    Configuration.timeout = 2000;
+    Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
+    DesiredCapabilities capabilities = new DesiredCapabilities();
+
+    capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+            "enableVNC", true,
+            "enableVideo", true
+    ));
+    Configuration.browserCapabilities = capabilities;
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+}
     @Test
     @DisplayName("Проверка авторизации и получения токена")
     void successAuthTest() {
         LoginBodyModel authData = new LoginBodyModel();
         authData.setEmail("eve.holt@reqres.in");
         authData.setPassword("cityslicka");
+
         LoginResponseModel response = step("Check auth and give token", () ->
                 given(RequestSpec)
                         .body(authData)
@@ -51,7 +74,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post(baseUrl + "/api/login")
+                        .post("/api/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -71,7 +94,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post(baseUrl + "/api/login")
+                        .post("/api/login")
 
                         .then()
                         .spec(missingPasswordResponseSpec)
@@ -91,7 +114,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post(baseUrl + "/api/login")
+                        .post("/api/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -112,7 +135,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post(baseUrl + "/api/login")
+                        .post("/api/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -134,7 +157,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
 
                         .when()
-                        .get(baseUrl + "/api/users?page=2")
+                        .get("/api/users?page=2")
 
                         .then()
                         .spec(getUsersPageResponseSpec)
@@ -157,7 +180,7 @@ public class ReqresLombokTest {
                 given(RequestSpec)
 
                         .when()
-                        .get(baseUrl + "/api/users?page=2")
+                        .get("/api/users?page=2")
 
                         .then()
                         .spec(getUsersPageResponseSpec)
@@ -175,11 +198,11 @@ public class ReqresLombokTest {
         authData.setEmail("eve.holt@reqres.in");
         authData.setPassword("cityslicka");
 
-            step("Delete user", () ->
+        step("Delete user", () ->
                 given(RequestSpec)
 
                         .when()
-                        .delete(baseUrl + "/api/users/2")
+                        .delete("/api/users/2")
 
                         .then()
                         .spec(deleteUsersPageResponseSpec)
