@@ -1,13 +1,9 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import models.ErrorBodyModel;
 import models.LoginBodyModel;
 import models.LoginResponseModel;
 import models.UsersBodyModel;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,16 +12,11 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static specs.Specs.*;
 
 @Tag("AllApi")
-public class ReqresSpecModelTest {
-    @BeforeAll
-    static void browserConfiguration() {
-        Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
+public class ReqresSpecModelTest extends TestBase {
 
     @Test
     @DisplayName("Проверка авторизации и получения токена")
@@ -39,14 +30,17 @@ public class ReqresSpecModelTest {
                         .body(authData)
 
                         .when()
-                        .post("/api/login")
+                        .post("/login")
 
                         .then()
                         .spec(loginResponseSpec)
                         .extract().as(LoginResponseModel.class));
 
         step("Check response", () ->
-                assertEquals("QpwL5tke4Pnpja7X4", response.getToken()));
+                assertNotNull(response.getToken()));
+                assertFalse(response.getToken().isEmpty());
+                assertFalse(response.getToken().trim().isEmpty());
+                assertEquals("QpwL5tke4Pnpja7X4", response.getToken());
     }
 
     @Test
@@ -60,7 +54,7 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post("/api/login")
+                        .post("/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -80,7 +74,7 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post("/api/login")
+                        .post("/login")
 
                         .then()
                         .spec(missingPasswordResponseSpec)
@@ -100,7 +94,7 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post("/api/login")
+                        .post("/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -121,7 +115,7 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
                         .body(authData)
                         .when()
-                        .post("/api/login")
+                        .post("/login")
 
                         .then()
                         .spec(badEmailResponseSpec)
@@ -142,7 +136,8 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
 
                         .when()
-                        .get("/api/users?page=2")
+                        .queryParam("page","2")
+                        .get("/users")
 
                         .then()
                         .spec(getUsersPageResponseSpec)
@@ -165,7 +160,8 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
 
                         .when()
-                        .get("/api/users?page=2")
+                        .queryParam("page","2")
+                        .get("/users")
 
                         .then()
                         .spec(getUsersPageResponseSpec)
@@ -187,7 +183,7 @@ public class ReqresSpecModelTest {
                 given(RequestSpec)
 
                         .when()
-                        .delete("/api/users/2")
+                        .delete("/users/2")
 
                         .then()
                         .spec(deleteUsersPageResponseSpec)

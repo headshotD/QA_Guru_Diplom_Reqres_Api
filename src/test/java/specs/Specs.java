@@ -1,49 +1,41 @@
 package specs;
 
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
-import static io.restassured.filter.log.LogDetail.BODY;
-import static io.restassured.filter.log.LogDetail.STATUS;
 import static io.restassured.http.ContentType.JSON;
 
 public class Specs {
     public static RequestSpecification RequestSpec = with()
             .filter(withCustomTemplates())
-            .log().uri()
-            .log().body()
-            .log().headers()
+            .log().all()
             .contentType(JSON)
-            .header("x-api-key", "reqres-free-v1")
-            .baseUri("https://reqres.in");
+            .header("x-api-key", "reqres-free-v1");
 
     public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
-            .log(STATUS)
-            .log(BODY)
+            .log(LogDetail.ALL)
             .build();
 
     public static ResponseSpecification badEmailResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(400)
-            .log(STATUS)
-            .log(BODY)
+            .log(LogDetail.ALL)
             .build();
     public static ResponseSpecification missingPasswordResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(400)
-            .log(STATUS)
-            .log(BODY)
+            .log(LogDetail.ALL)
             .build();
 
     public static ResponseSpecification getUsersPageResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
-            .log(STATUS)
-            .log(BODY)
+            .log(LogDetail.ALL)
             .build();
     public static ResponseSpecification deleteUsersPageResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(204)
-            .log(STATUS)
+            .log(LogDetail.ALL)
             .build();
 }
