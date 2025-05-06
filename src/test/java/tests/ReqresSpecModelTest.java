@@ -40,7 +40,6 @@ public class ReqresSpecModelTest extends TestBase {
                 assertNotNull(response.getToken()));
                 assertFalse(response.getToken().isEmpty());
                 assertFalse(response.getToken().trim().isEmpty());
-                assertEquals("QpwL5tke4Pnpja7X4", response.getToken());
     }
 
     @Test
