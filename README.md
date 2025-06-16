@@ -1,5 +1,5 @@
 
-<a href="https://usetech.ru/ "> <img src="media/img.png" width="200" height="200"> 
+<a href="https://usetech.ru/ "> <img src="media/img.png" width="300" height="200"> 
 <h1 >Проект по автоматизации тестирования для компании <a href="https://reqres.in/ "> Reqres</a></h1> 
 
 ## ☑️ Содержание:
@@ -30,7 +30,7 @@
 - ✅ Сравнение данных из респонса
 - ✅ Удаление юзера
 - ✅ Пагинация
-- 
+
 ## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/C34-Olejjka1337-unit14-UseTech/)
 
 
