@@ -1,21 +1,22 @@
-package tests;
+package api.tests;
 
-import config.WebDriverConfig;
-import models.ErrorBodyModel;
-import models.LoginBodyModel;
-import models.LoginResponseModel;
-import models.UsersBodyModel;
+import api.config.WebDriverConfig;
+import api.models.ErrorBodyModel;
+import api.models.LoginBodyModel;
+import api.models.LoginResponseModel;
+import api.models.UsersBodyModel;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static api.specs.Specs.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
-import static specs.Specs.*;
+
 
 @Tag("AllApi")
 public class ReqresSpecModelTest extends TestBase {
@@ -42,8 +43,8 @@ public class ReqresSpecModelTest extends TestBase {
 
         step("Check response", () ->
                 assertNotNull(response.getToken()));
-                assertFalse(response.getToken().isEmpty());
-                assertFalse(response.getToken().trim().isEmpty());
+        assertFalse(response.getToken().isEmpty());
+        assertFalse(response.getToken().trim().isEmpty());
     }
 
     @Test

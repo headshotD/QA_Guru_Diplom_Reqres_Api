@@ -1,4 +1,4 @@
-package tests;
+package api.tests;
 
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
