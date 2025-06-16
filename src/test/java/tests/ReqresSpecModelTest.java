@@ -1,9 +1,11 @@
 package tests;
 
+import config.WebDriverConfig;
 import models.ErrorBodyModel;
 import models.LoginBodyModel;
 import models.LoginResponseModel;
 import models.UsersBodyModel;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,12 +20,14 @@ import static specs.Specs.*;
 @Tag("AllApi")
 public class ReqresSpecModelTest extends TestBase {
 
+    WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class);
+
     @Test
     @DisplayName("Проверка авторизации и получения токена")
     void successAuthTest() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.holt@reqres.in");
-        authData.setPassword("cityslicka");
+        authData.setEmail(config.email());
+        authData.setPassword(config.password());
 
         LoginResponseModel response = step("Check auth and give token", () ->
                 given(RequestSpec)
@@ -46,8 +50,8 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Авторизация с невалидным емейлом")
     void unSuccessWithBadEmailAuthTest() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.h1234olt@reqres.in");
-        authData.setPassword("cityslicka");
+        authData.setEmail(config.invalidEmail());
+        authData.setPassword(config.password());
 
         ErrorBodyModel response = step("Auth with bad email", () ->
                 given(RequestSpec)
@@ -67,7 +71,7 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Проверка авторизации без пароля")
     void unSuccessWithMissingPasswordAuthTest() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.holt@reqres.in");
+        authData.setEmail(config.email());
 
         ErrorBodyModel response = step("Auth with missing password", () ->
                 given(RequestSpec)
@@ -87,7 +91,7 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Проверка авторизации без емейла")
     void registrationUserWithOutEmailTest() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setPassword("cityslicka");
+        authData.setPassword(config.password());
 
         ErrorBodyModel response = step("Auth with missing email", () ->
                 given(RequestSpec)
@@ -128,8 +132,8 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Получение списка юзеров и проверка одного из них")
     void getUserList() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.holt@reqres.in");
-        authData.setPassword("cityslicka");
+        authData.setEmail(config.email());
+        authData.setPassword(config.password());
 
         UsersBodyModel response = step("Check pages and Lawson Michael", () ->
                 given(RequestSpec)
@@ -152,8 +156,8 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Получение списка юзеров и проверка текста у саппорта")
     void getUserListAndCheckText() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.holt@reqres.in");
-        authData.setPassword("cityslicka");
+        authData.setEmail(config.email());
+        authData.setPassword(config.password());
 
         UsersBodyModel response = step("Check users and text in support", () ->
                 given(RequestSpec)
@@ -175,8 +179,8 @@ public class ReqresSpecModelTest extends TestBase {
     @DisplayName("Удаление юзера")
     void deleteUser() {
         LoginBodyModel authData = new LoginBodyModel();
-        authData.setEmail("eve.holt@reqres.in");
-        authData.setPassword("cityslicka");
+        authData.setEmail(config.email());
+        authData.setPassword(config.password());
 
         step("Delete user", () ->
                 given(RequestSpec)
