@@ -35,33 +35,20 @@
 
 
 <p align="center">  
-<img src="media/JenkinsBuild.jpg" alt="Jenkins" width="950"/></a>  
+<img src="media/JenkinsBuild.png" alt="Jenkins" width="950"/></a>  
 </p>
-
-
-## :ballot_box_with_check: Параметры сборки в Jenkins:
-
-- browser (браузер, по умолчанию chrome)
-- browserVersion (версия браузера, по умолчанию 127.0)
-- browserSize (размер окна браузера, по умолчанию 1920x1080)
 
 
 ## Команда для запуска из терминала
 Локальный запуск
 ```bash
-gradle clean UseTech
+gradle clean AllApi
+./gradlew AllApi
 ```
-Запуск с параметрами:
-```bash  
--Dbrowser=chrome -DbrowserSize=1920x1080 -DbrowserVersion=128.0
-```
+
 Удаленный запуск через Jenkins:
 ```bash  
-clean UseTech
--Dbrowser="${BROWSER}"
--DbrowserSize="${BROWSER_SIZE}"
--DbrowserVersion="${BROWSER_VERSION}"
--DbrowserRemote="https://log:pass@${BROWSER_REMOTE}/wd/hub"
+clean AllApi
 ```
 
 ## <img alt="Allure" height="25" src="media/Allure.svg" width="25"/></a>  <a name="Allure"></a>Allure Report	</a>
@@ -79,14 +66,3 @@ ____
 <p align="center">  
 <img title="Allure Overview Dashboard" src="media/tgAllert.jpg" width="550">  
 </p>
-
-____
-## <img alt="Selenoid" height="25" src="media/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов на Selenoid
-____
-<p align="center">
-<img title="Selenoid Video" src="media/news.gif" width="550" height="350"  alt="video">   
-</p>
-
-<p align="center">
-<img title="Selenoid Video" src="media/contact.gif" width="550" height="350"  alt="video">   
-</p>  
