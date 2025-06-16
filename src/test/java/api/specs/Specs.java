@@ -1,20 +1,25 @@
 package api.specs;
 
+import api.config.WebDriverConfig;
+import io.restassured.RestAssured;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.aeonbits.owner.ConfigFactory;
 
 import static api.helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
 public class Specs {
+    static WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class);
+
     public static RequestSpecification RequestSpec = with()
             .filter(withCustomTemplates())
             .log().all()
             .contentType(JSON)
-            .header("x-api-key", "reqres-free-v1");
+            .header("x-api-key", config.key() );
 
     public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
