@@ -1,5 +1,5 @@
 
-<a href="https://reqres.in/ "> <img src="media/img.png" width="300" height="200"> 
+<a href="https://reqres.in/ "> <img src="media/logo.png" width="300" height="200"> 
 <h1 >Проект по автоматизации тестирования для компании <a href="https://reqres.in/ "> Reqres</a></h1> 
 
 ## ☑️ Содержание:
