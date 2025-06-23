@@ -13,12 +13,19 @@
 
 <a id="tools"></a>
 ## :ballot_box_with_check:Технологии и инструменты:
-
-|         Java                                                                                                      | IntelliJ  <br>  Idea                                                                                               | GitHub                                                                                                     | JUnit 5                                                                                                           | Gradle                                                                                                     | Selenide                                                                                                         | Selenoid                                                                                                                  | Allure <br> Report                                                                                                         |  Jenkins                                                                                                        |   Telegram
-|:----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| <a href="https://www.java.com/"><img src="media/java-svgrepo-com.svg" width="50" height="50"  alt="Java"/></a>  | <a href="https://www.jetbrains.com/idea/"><img src="media/intellij-idea-svgrepo-com.svg" width="50" height="50"  alt="IDEA"/></a> | <a href="https://github.com/"><img src="media/github-badge-svgrepo-com.svg" width="50" height="50"  alt="Github"/></a> | <a href="https://junit.org/junit5/"><img src="media/Junit5.svg" width="50" height="50"  alt="JUnit 5"/></a> | <a href="https://gradle.org/"><img src="media/gradle-svgrepo-com.svg" width="50" height="50"  alt="Gradle"/></a> | <a href="https://selenide.org/"><img src="media/Selenide.svg" width="50" height="50"  alt="Selenide"/></a> | <a href="https://aerokube.com/selenoid/"><img src="media/Selenoid.svg" width="50" height="50"  alt="Selenoid"/></a> | <a href="https://github.com/allure-framework"><img src="media/Allure.svg" width="50" height="50"  alt="Allure"/></a> |<a href="https://www.jenkins.io/"><img src="media/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a> | <a href="https://web.telegram.org/"><img src="media/Telegram.svg" width="50" height="50" alt="Telegram"/></a> |<a href="https://qameta.io/"><img src="images\logo\Allure_TO.svg" width="50" height="50" alt="Allure_TO"/></a> |
-
+<p align="center">
+<img width="7%" title="IntelliJ IDEA" src="media/intellij-idea-svgrepo-com.svg">
+<img width="7%" title="Java" src="media/java-svgrepo-com.svg">
+<img width="7%" title="Allure Report" src="media/Allure.svg">
+<img width="7%" title="Gradle" src="media/gradle-svgrepo-com.svg">
+<img width="7%" title="JUnit5" src="media/Junit5.svg">
+<img width="7%" title="GitHub" src="media/github-badge-svgrepo-com.svg">
+<img width="7%" title="Jenkins" src="media/Jenkins.svg">
+<img width="7%" title="Telegram" src="media/Telegram.svg">
+<img width="7%" title="RestAssured" src="media/RestAssured.svg">
+</p>
 <a id="cases"></a>
+
 ## :ballot_box_with_check: Реализованные проверки:
 
 ### Авторизация
@@ -57,7 +64,7 @@ clean AllApi
 ## Основная страница отчёта
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="media/AllureReport.jpg" width="850">  
+<img title="Allure Overview Dashboard" src="media/AllureReport.png" width="850">  
 </p>  
 
 ____

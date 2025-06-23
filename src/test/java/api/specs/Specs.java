@@ -1,7 +1,6 @@
 package api.specs;
 
 import api.config.WebDriverConfig;
-import io.restassured.RestAssured;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
