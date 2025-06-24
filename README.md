@@ -78,12 +78,7 @@ clean AllApi
 ## Список тест-кейсов
 <p align="center">  
 <img title="Allure Overview Dashboard" src="media/TestCase.png" width="850">  
-</p>  
-____
-<p align="center">  
-<img title="Allure Overview Dashboard" src="media/tgAllert.jpg" width="550">  
 </p>
-
 ____
 ## <img alt="Allure" height="25" src="media/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
 ____
