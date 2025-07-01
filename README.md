@@ -4,12 +4,15 @@
 
 ## ☑️ Содержание:
 
-- Технологии и инструменты
-- Список проверок, реализованных в тестах
-- Запуск тестов в Jenkins и из терминала
-- Allure-отчет
-- Allure TestOps-отчет
-- Уведомление в Telegram о результатах прогона тестов
+- [Технологии и инструменты](#технологии-и-инструменты)
+- [Реализованные проверки](#реализованные-проверки)
+    - [Авторизация](#авторизация)
+    - [Пользователи](#пользователи)
+- [Сборка в Jenkins](#сборка-в-jenkins)
+- [Команда для запуска из терминала](#команда-для-запуска-из-терминала)
+- [Allure Report](#allure-report)
+- [Allure TestOps](#allure-testops)
+- [Уведомление в Telegram](#уведомление-в-telegram-при-помощи-бота)
 
 <a id="tools"></a>
 ## :ballot_box_with_check:Технологии и инструменты:
@@ -24,8 +27,8 @@
 <a href="https://telegram.org/"> <img width="7%" title="Telegram" src="media/Telegram.svg">
 <a href="https://rest-assured.io/"> <img width="7%" title="RestAssured" src="media/RestAssured.svg">
 </p>
-<a id="cases"></a>
 
+<a id="cases"></a>
 ## :ballot_box_with_check: Реализованные проверки:
 
 ### Авторизация
