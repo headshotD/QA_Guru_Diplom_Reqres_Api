@@ -3,6 +3,9 @@ package api.tests;
 import api.config.WebDriverConfig;
 import api.models.LoginBodyModel;
 import api.models.UsersBodyModel;
+import api.specs.Specs;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Owner;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,6 +19,9 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("AllApi")
+@Epic("API Юзеры")
+@Owner("ONamozov")
+@DisplayName("Проверка юзеров")
 public class UsersTest extends TestBase {
 
     WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class);
@@ -27,19 +33,19 @@ public class UsersTest extends TestBase {
         authData.setEmail(config.email());
         authData.setPassword(config.password());
 
-        UsersBodyModel response = step("Check pages and Lawson Michael", () ->
+        UsersBodyModel response = step("Получаем список юзеров и проверяем наличие юзера Lawson Michael", () ->
                 given(RequestSpec)
                         .when()
                         .queryParam("page", "2")
                         .get("/users")
 
                         .then()
-                        .spec(getUsersPageResponseSpec)
+                        .spec(responseSpec200)
                         .body("data.last_name", hasItem(config.dataLastName()))
                         .body("data.first_name", hasItem(config.dataFirstName()))
                         .extract().as(UsersBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertEquals("2", response.getPage()));
     }
 
@@ -50,18 +56,18 @@ public class UsersTest extends TestBase {
         authData.setEmail(config.email());
         authData.setPassword(config.password());
 
-        UsersBodyModel response = step("Check users and text in support", () ->
+        UsersBodyModel response = step("Проверка текста в разделе Саппорт", () ->
                 given(RequestSpec)
                         .when()
                         .queryParam("page", "2")
                         .get("/users")
 
                         .then()
-                        .spec(getUsersPageResponseSpec)
+                        .spec(responseSpec200)
                         .body("support.text", is(config.supportText()))
                         .extract().as(UsersBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка текста", () ->
                 assertEquals("2", response.getPage()));
     }
 
@@ -72,13 +78,13 @@ public class UsersTest extends TestBase {
         authData.setEmail(config.email());
         authData.setPassword(config.password());
 
-        step("Delete user", () ->
+        step("Удаление юзера", () ->
                 given(RequestSpec)
                         .when()
                         .delete("/users/2")
 
                         .then()
-                        .spec(deleteUsersPageResponseSpec)
+                        .spec(Specs.responseSpec204)
         );
     }
 }

@@ -18,27 +18,19 @@ public class Specs {
             .filter(withCustomTemplates())
             .log().all()
             .contentType(JSON)
-            .header("x-api-key", config.key() );
+            .header("x-api-key", config.key());
 
-    public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification responseSpec200 = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .log(LogDetail.ALL)
             .build();
 
-    public static ResponseSpecification badEmailResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(400)
-            .log(LogDetail.ALL)
-            .build();
-    public static ResponseSpecification missingPasswordResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification responseSpec400 = new ResponseSpecBuilder()
             .expectStatusCode(400)
             .log(LogDetail.ALL)
             .build();
 
-    public static ResponseSpecification getUsersPageResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .log(LogDetail.ALL)
-            .build();
-    public static ResponseSpecification deleteUsersPageResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification responseSpec204 = new ResponseSpecBuilder()
             .expectStatusCode(204)
             .log(LogDetail.ALL)
             .build();

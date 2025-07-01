@@ -4,6 +4,8 @@ import api.config.WebDriverConfig;
 import api.models.ErrorBodyModel;
 import api.models.LoginBodyModel;
 import api.models.LoginResponseModel;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Owner;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,7 +15,11 @@ import static api.specs.Specs.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
+
 @Tag("AllApi")
+@Epic("API Авторизация")
+@Owner("ONamozov")
+@DisplayName("Проверка авторизации")
 public class LoginTest extends TestBase {
     WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class);
 
@@ -24,17 +30,17 @@ public class LoginTest extends TestBase {
         authData.setEmail(config.email());
         authData.setPassword(config.password());
 
-        LoginResponseModel response = step("Check auth and give token", () ->
+        LoginResponseModel response = step("Проверка авторизации и получения токена", () ->
                 given(RequestSpec)
                         .body(authData)
                         .when()
                         .post("/login")
 
                         .then()
-                        .spec(loginResponseSpec)
+                        .spec(responseSpec200)
                         .extract().as(LoginResponseModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertNotNull(response.getToken()));
         assertFalse(response.getToken().isEmpty());
         assertFalse(response.getToken().trim().isEmpty());
@@ -47,17 +53,17 @@ public class LoginTest extends TestBase {
         authData.setEmail(config.invalidEmail());
         authData.setPassword(config.password());
 
-        ErrorBodyModel response = step("Auth with bad email", () ->
+        ErrorBodyModel response = step("Авторизация с невалидным емейлом", () ->
                 given(RequestSpec)
                         .body(authData)
                         .when()
                         .post("/login")
 
                         .then()
-                        .spec(badEmailResponseSpec)
+                        .spec(responseSpec400)
                         .extract().as(ErrorBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertEquals("user not found", response.getError()));
     }
 
@@ -67,17 +73,17 @@ public class LoginTest extends TestBase {
         LoginBodyModel authData = new LoginBodyModel();
         authData.setEmail(config.email());
 
-        ErrorBodyModel response = step("Auth with missing password", () ->
+        ErrorBodyModel response = step("Авторизация без пароля", () ->
                 given(RequestSpec)
                         .body(authData)
                         .when()
                         .post("/login")
 
                         .then()
-                        .spec(missingPasswordResponseSpec)
+                        .spec(responseSpec400)
                         .extract().as(ErrorBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertEquals("Missing password", response.getError()));
     }
 
@@ -87,17 +93,17 @@ public class LoginTest extends TestBase {
         LoginBodyModel authData = new LoginBodyModel();
         authData.setPassword(config.password());
 
-        ErrorBodyModel response = step("Auth with missing email", () ->
+        ErrorBodyModel response = step("Проверка авторизации без емейла", () ->
                 given(RequestSpec)
                         .body(authData)
                         .when()
                         .post("/login")
 
                         .then()
-                        .spec(badEmailResponseSpec)
+                        .spec(responseSpec400)
                         .extract().as(ErrorBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertEquals("Missing email or username", response.getError()));
     }
 
@@ -108,17 +114,17 @@ public class LoginTest extends TestBase {
         authData.setEmail("");
         authData.setPassword("");
 
-        ErrorBodyModel response = step("Auth with out data", () ->
+        ErrorBodyModel response = step("Авторизация без емейла и пароля", () ->
                 given(RequestSpec)
                         .body(authData)
                         .when()
                         .post("/login")
 
                         .then()
-                        .spec(badEmailResponseSpec)
+                        .spec(responseSpec400)
                         .extract().as(ErrorBodyModel.class));
 
-        step("Check response", () ->
+        step("Проверка ответа", () ->
                 assertEquals("Missing email or username", response.getError()));
     }
 
