@@ -8,11 +8,11 @@
 - [Реализованные проверки](#cases)
     - [Авторизация](#авторизация)
     - [Пользователи](#пользователи)
-- [Сборка в Jenkins](#сборка-в-jenkins)
+- [Сборка в Jenkins](#jenkins-build)
 - [Команда для запуска из терминала](#команда-для-запуска-из-терминала)
 - [Allure Report](#allure-report)
 - [Allure TestOps](#allure-testops)
-- [Уведомление в Telegram](#уведомление-в-telegram-при-помощи-бота)
+- [Уведомление в Telegram](#telegram)
 
 <a id="tools"></a>
 ## :ballot_box_with_check:Технологии и инструменты:
@@ -40,7 +40,8 @@
 - ✅ Сравнение данных из респонса
 - ✅ Удаление юзера
 - ✅ Пагинация
-
+  
+<a id="jenkins-build"></a>
 ## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/C34-Olejjka1337-unit14-UseTech/)
 
 
@@ -60,7 +61,7 @@ gradle clean AllApi
 ```bash  
 clean AllApi
 ```
-
+<a id="allure-report"></a>
 ## <img alt="Allure" height="25" src="media/Allure.svg" width="25"/></a>  <a name="Allure"></a>Allure Report	</a>
 
 
@@ -70,8 +71,10 @@ clean AllApi
 <a href="https://jenkins.autotests.cloud/job/ONamozov_diplom_34_api/27/allure/"> "<img title="Allure Overview Dashboard" src="media/AllureReport.png" width="850">  
 </p>  
 
+<a id="allure-testops"></a>
 ## <img alt="Allure" height="25" src="media/Allure_TestOps.svg" width="25"/></a>  <a name="Allure TestOps"></a>Allure TestOps	</a>
-    
+
+<a id="allure-testops"></a>
 ## Основная страница отчёта Allure TestOps
 
 <p align="center">  
@@ -83,6 +86,7 @@ clean AllApi
 <a href="https://allure.autotests.cloud/project/4783/test-cases?treeId=0"> <img title="Allure Overview Dashboard" src="media/TestCase.png" width="850">  </a>
 </p>
 
+<a id="telegram"></a>
 ## <img alt="Allure" height="25" src="media/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
 ____
 <p align="center">  
