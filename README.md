@@ -14,7 +14,7 @@
 <a id="tools"></a>
 ## :ballot_box_with_check:Технологии и инструменты:
 <p align="center">
-<a href="https://www.jetbrains.com/idea/"><img width="7%" title="Java" src="media/java-svgrepo-com.svg">
+<a href="https://www.java.com/ru/"> <img width="7%" title="Java" src="media/java-svgrepo-com.svg">
 <a href="https://github.com/allure-framework/"> <img width="7%" title="Allure Report" src="media/Allure.svg">
 <a href="https://gradle.org/"> <img width="7%" title="Gradle" src="media/gradle-svgrepo-com.svg">
 <a href="https://junit.org/"> <img width="7%" title="JUnit5" src="media/Junit5.svg">
@@ -63,8 +63,8 @@ clean AllApi
 
 ## Основная страница отчёта
 
-<p align="center">  
-<img title="Allure Overview Dashboard" src="media/AllureReport.png" width="850">  
+<p align="center">
+<a href="https://jenkins.autotests.cloud/job/ONamozov_diplom_34_api/27/allure/"> "<img title="Allure Overview Dashboard" src="media/AllureReport.png" width="850">  
 </p>  
 
 ## <img alt="Allure" height="25" src="media/Allure_TestOps.svg" width="25"/></a>  <a name="Allure TestOps"></a>Allure TestOps	</a>
@@ -72,7 +72,7 @@ clean AllApi
 ## Основная страница отчёта Allure TestOps
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  
+<a href="https://allure.autotests.cloud/launch/47141"> </a><img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  
 </p>  
 
 ## Список тест-кейсов
