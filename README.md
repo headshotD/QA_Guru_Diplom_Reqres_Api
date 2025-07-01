@@ -72,12 +72,12 @@ clean AllApi
 ## Основная страница отчёта Allure TestOps
 
 <p align="center">  
-<a href="https://allure.autotests.cloud/launch/47141"> </a><img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  
+<a href="https://allure.autotests.cloud/launch/47141"> <img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  </a>
 </p>  
 
 ## Список тест-кейсов
 <p align="center">  
-<a href="https://allure.autotests.cloud/project/4783/test-cases?treeId=0"> <img title="Allure Overview Dashboard" src="media/TestCase.png" width="850">  
+<a href="https://allure.autotests.cloud/project/4783/test-cases?treeId=0"> <img title="Allure Overview Dashboard" src="media/TestCase.png" width="850">  </a>
 </p>
 
 ## <img alt="Allure" height="25" src="media/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
