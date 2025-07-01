@@ -42,7 +42,7 @@
 
 
 <p align="center">  
-<img src="media/JenkinsBuild.png" alt="Jenkins" width="950"/>  
+<a href="https://jenkins.autotests.cloud/job/ONamozov_diplom_34_api/"> <img src="media/JenkinsBuild.png" alt="Jenkins" width="950"/> </a>
 </p>
 
 
