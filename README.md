@@ -75,7 +75,7 @@ clean AllApi
 ## <img alt="Allure" height="25" src="media/Allure_TestOps.svg" width="25"/></a>  <a name="Allure TestOps"></a>[Allure TestOps](https://allure.autotests.cloud/launch/47141)	</a>
 
 <a id="allure-testops"></a>
-## Основная страница отчёта [Allure TestOps](https://allure.autotests.cloud/launch/47141)
+## Основная страница отчёта Allure TestOps
 
 <p align="center">  
 <a href="https://allure.autotests.cloud/launch/47141"> <img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  </a>
