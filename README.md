@@ -78,7 +78,7 @@ clean AllApi
 ## Основная страница отчёта Allure TestOps
 
 <p align="center">  
-<a href="https://allure.autotests.cloud/launch/47141"> <img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  </a>
+<a href="https://allure.autotests.cloud/project/4783/dashboards/2405"> <img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  </a>
 </p>  
 
 ## [Список](https://allure.autotests.cloud/project/4783/test-cases?treeId=0) тест-кейсов 
