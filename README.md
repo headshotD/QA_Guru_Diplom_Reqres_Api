@@ -42,7 +42,7 @@
 - ✅ Пагинация
   
 <a id="jenkins-build"></a>
-## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/C34-Olejjka1337-unit14-UseTech/)
+## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/ONamozov_diplom_34_api/)
 
 
 <p align="center">  
@@ -62,7 +62,7 @@ gradle clean AllApi
 clean AllApi
 ```
 <a id="allure-report"></a>
-## <img alt="Allure" height="25" src="media/Allure.svg" width="25"/></a>  <a name="Allure"></a>Allure Report	</a>
+## <img alt="Allure" height="25" src="media/Allure.svg" width="25"/></a>  <a name="Allure"></a>[Allure Report](https://jenkins.autotests.cloud/job/ONamozov_diplom_34_api/27/allure/)	</a>
 
 
 ## Основная страница отчёта
@@ -72,16 +72,16 @@ clean AllApi
 </p>  
 
 <a id="allure-testops"></a>
-## <img alt="Allure" height="25" src="media/Allure_TestOps.svg" width="25"/></a>  <a name="Allure TestOps"></a>Allure TestOps	</a>
+## <img alt="Allure" height="25" src="media/Allure_TestOps.svg" width="25"/></a>  <a name="Allure TestOps"></a>[Allure TestOps](https://allure.autotests.cloud/launch/47141)	</a>
 
 <a id="allure-testops"></a>
-## Основная страница отчёта Allure TestOps
+## Основная страница отчёта [Allure TestOps](https://allure.autotests.cloud/launch/47141)
 
 <p align="center">  
 <a href="https://allure.autotests.cloud/launch/47141"> <img title="Allure Overview Dashboard" src="media/AllureTestOpsReport.png" width="850">  </a>
 </p>  
 
-## Список тест-кейсов
+## [Список](https://allure.autotests.cloud/project/4783/test-cases?treeId=0) тест-кейсов 
 <p align="center">  
 <a href="https://allure.autotests.cloud/project/4783/test-cases?treeId=0"> <img title="Allure Overview Dashboard" src="media/TestCase.png" width="850">  </a>
 </p>
